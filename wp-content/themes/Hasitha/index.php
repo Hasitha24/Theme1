@@ -5,6 +5,7 @@
  * 
  * @package Hasitha
  */
+get_header();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +15,11 @@
     <title>Wordpress Theme</title>
 </head>
 <body>
-   <p>Hi Hasitha</p> 
+    <div class="content">
+        Content
+    </div>
+    
+  <header>Header</header>
+  <footer>Footer</footer>
 </body>
 </html>

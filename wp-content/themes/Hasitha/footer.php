@@ -1,8 +1,9 @@
 <?php
 /**
- * Theme Functions
+ * Footer File
  * 
  * @package Hasitha
  */
+
 
 ?>
