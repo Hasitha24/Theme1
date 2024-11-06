@@ -11,10 +11,25 @@
 
 function hasitha_enqueue_scripts(){
 //here we added all for every kind of media.Now whenever the style.css file changes, the version number which is obtained by fileemtime will be changed to a newer version.
-    wp_enqueue_style('stylesheet',get_stylesheet_uri(),[],filemtime(get_template_directory().'/style.css'),'all');
+  //  wp_enqueue_style('style-css',get_stylesheet_uri(),[],filemtime(get_template_directory().'/style.css'),'all');
     //assets folder added to the theme folder to keep all the files and style sheets
-    //script will be added as below
-    wp_enqueue_script();
+    //javascript file will be added as below  (path to the file name should be provided and if the js script should be added at the bottom of the index it should be marked
+   // as true, if it should be added to header, it should be marked as false )
+    //wp_enqueue_script('main-js',get_template_directory_uri().'/assets/main.js',[], filemtime(get_template_directory().'/assets/main.js'), true);
+
+//alternative method to the above enqueue procedure
+// wp_register_style('style-css',get_stylesheet_uri(),[],filemtime(get_template_directory().'/style.css'),'all');
+// wp_enqueue_style('style-css');
+//wp_register_style is important at the times we have to use wp_enqueue conditionally.
+//eg. when we have to enqueue scripts only for a certain page. etc..So using the we_register_style initially is the best practise
+
+wp_register_style('style-css',get_stylesheet_uri(),[],filemtime(get_template_directory().'/style.css'),'all');
+wp_register_script( 'main-js',get_template_directory_uri() . '/assets/main.js', [], filemtime( get_template_directory() . '/assets/main.js' ), true);
+
+
+wp_enqueue_style('style-css');
+wp_enqueue_script('main-js');
+
 }
 add_action('wp_enqueue_scripts','hasitha_enqueue_scripts');
 ?>
