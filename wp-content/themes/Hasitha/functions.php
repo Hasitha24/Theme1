@@ -5,6 +5,17 @@
  * @package Hasitha
  */
 
+
+if (! defined ( 'HASITHA_DIR_PATH')){
+  define ('HASITHA_DIR_PATH',untrailingslashit(get_template_directory()));
+}
+
+echo '<pre>';
+print_r(HASITHA_DIR_PATH);
+wp_die();
+
+require_once HASITHA_DIR_PATH . '/inc/helpers/autoloader.php';
+
 // echo '<pre>';
 // print_r(filemtime(get_template_directory().'/style.css'));
 // wp_die();
