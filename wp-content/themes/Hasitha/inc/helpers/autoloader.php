@@ -24,7 +24,7 @@ function autoloader( $resource = '' ) {
 		return;
 	}
 
-	// Remove our root namespace.
+		// Remove our root namespace.
 	$resource = str_replace( $namespace_root, '', $resource );
 
 	$path = explode(
@@ -39,6 +39,11 @@ function autoloader( $resource = '' ) {
 	if ( empty( $path[0] ) || empty( $path[1] ) ) {
 		return;
 	}
+	
+	echo '<pre>';
+	print_r($path);
+	wp_die();
+
 
 	$directory = '';
 	$file_name = '';

@@ -6,7 +6,7 @@ trait Singleton {
     public function __construct() {
           }
 
-    public function_clone() {
+    public function __clone() {
 
     }
 
@@ -14,11 +14,14 @@ trait Singleton {
         static $instance = [];
 
         $called_class = get_called_class();
-        if(!isset($instance[$called_class])){
-            $instance[$called_class] = new $called_class();
 
-            do_action(sprintf('hasitha_theme_singleton_init%s', $called_class));
+        if( !isset( $instance[ $called_class ] ) ){
+            $instance[ $called_class ] = new $called_class();
+
+            do_action( sprintf( 'hasitha_theme_singleton_init%s', $called_class ) );
         }
+        return $instance [$called_class];
     }
-    return $instance [$called_class];
+
+   
 }
